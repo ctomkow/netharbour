@@ -104,7 +104,7 @@ class Search{
 		}
 		
 		/*FOR INTERFACES*/
-		$query = "SELECT Devices.device_id, Devices.archived, Devices.name, interface_device, interface_id, interface_name, interface_descr, interface_alias FROM interfaces, Devices WHERE Devices.device_id = interfaces.interface_device AND (interface_name LIKE '".$keyword."' || interface_descr LIKE '".$keyword."' || interface_alias LIKE '".$keyword."') ORDER BY interface_name";
+		$query = "SELECT Devices.device_id, Devices.archived, Devices.name, interface_device, interface_id, interface_name, interface_descr, interface_alias FROM interfaces, Devices WHERE Devices.device_id = interfaces.interface_device AND interfaces.active = '1' AND (interface_name LIKE '".$keyword."' || interface_descr LIKE '".$keyword."' || interface_alias LIKE '".$keyword."') ORDER BY interface_name";
 		$result = mysql_query($query) or die('Error, query failed. ' . mysql_error());
 		
 		if (!$result)  {
