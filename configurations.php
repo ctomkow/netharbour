@@ -601,15 +601,8 @@ function displayDashboard () {
 		$status = checkDirForWidget($dir);
 		if ($status != true)
 		{
-			$propertyForm->warning("Failed to refresh system widgets. Reason: ". $status) ;
+			$propertyForm->warning("Failed to refresh. Reason: ". $status) ;
 		}
-
-        $dir = "/opt/netharbour/widgets/";
-        $status = checkDirForWidget($dir);
-        if ($status != true)
-        {
-            $propertyForm->warning("Failed to refresh user widgets. Reason: ". $status) ;
-        }
 	}
 	
 	$widgets = Widgets::get_widgets();
@@ -818,15 +811,8 @@ function displayPlugins() {
 		$status = checkDirForPlugins($dir);
 		if ($status != true)
 		{
-			$propertyForm->warning("Failed to refresh system plugins. Reason: ". $status) ;
+			$propertyForm->warning("Failed to refresh. Reason: ". $status) ;
 		}
-
-        $dir = "/opt/netharbour/plugins/";
-        $status = checkDirForPlugins($dir);
-        if ($status != true)
-        {
-            $propertyForm->warning("Failed to refresh user plugins. Reason: ". $status) ;
-        }
 	}
 	
 	foreach ($plugins as $id => $value)
