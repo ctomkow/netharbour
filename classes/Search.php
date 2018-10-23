@@ -116,7 +116,7 @@ class Search{
 			array_push($this->intResults, $obj);
 		}
 		
-		$query = "SELECT * FROM interface_IPaddresses, interfaces, Devices WHERE interface_IPaddresses.device_id = Devices.device_id AND Devices.device_id = interfaces.interface_device AND interface_IPaddresses.if_index = interfaces.disc_interface_index AND interface_IPaddresses.inet_address LIKE '".$keyword."' ORDER BY interface_name";
+		$query = "SELECT * FROM interface_IPaddresses, interfaces, Devices WHERE interface_IPaddresses.device_id = Devices.device_id AND Devices.device_id = interfaces.interface_device AND interface_IPaddresses.if_index = interfaces.disc_interface_index AND interfaces.active = '1' AND interface_IPaddresses.inet_address LIKE '".$keyword."' ORDER BY interface_name";
 		$result = mysql_query($query) or die('Error, query failed. ' . mysql_error());
 		
 		if (!$result)  {
